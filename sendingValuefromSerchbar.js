@@ -1,7 +1,7 @@
 const express=require("express")
 const app=express()
 const port =3000;
-app.get('/', (req,res)=>{//will always work doesnt matter what you put after the / in the url bar 
+app.get('/', (req,res)=>{
     res.send("hello")
 })
 
@@ -15,5 +15,5 @@ app.post('/sum', (req,res)=>{
     res.send(tot.toString())
 })
 app.listen(port,()=>{
-    console.log("hello everyone");
+    console.log("server is listining on the port number"+port);
 })
