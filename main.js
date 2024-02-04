@@ -3,7 +3,7 @@ var bodyParser=require('body-parser')
 const app=express()
 const port =3000;
 app.use(bodyParser.json())
-app.get('/', (req,res)=>{//will always work doesnt matter what you put after the / in the url bar 
+app.get('/', (req,res)=>{ 
     res.send("hello")
 })
 
