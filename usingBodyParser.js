@@ -9,14 +9,16 @@ app.get('/', (req,res)=>{
 
 app.post('/sum', (req,res)=>{
     var count=req.body.age;
-    let tot=10;
+    let tot=0;
     for (let i = 0;i <count; i++) {
         tot=tot+i;
     }
 
     console.log(req.body);
 
-    res.send(tot.toString()) 
+    // res.send(tot.toString()) 
+    res.status(401).send(tot.toString())
+    //we can use this syntax to chang the status code of the send file
 })
 app.listen(port,()=>{
     console.log("hello everyone");
