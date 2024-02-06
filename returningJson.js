@@ -10,11 +10,17 @@ app.get('/', (req,res)=>{
 app.post('/sum', (req,res)=>{
     var count=req.body.age;
     let tot=0;
+    let mul=1;
     for (let i = 0;i <count; i++) {
         tot=tot+i;
     } 
-   let sumObject={
-    sum:tot
+    for (let i=1; i <=count; i++) {
+         mul =mul*i;
+        
+    }
+   let sumObject={//we are sennding two value in 
+    sum:tot,//inform of a object 
+    multiply:mul
    }
    res.send(sumObject)
    //json object is returned in the send formet
