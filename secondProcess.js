@@ -16,4 +16,5 @@ function callback(result){
 let senObj={
   method:"GET"
 }
-fetch("http://localhost:3000/sum?age=10",senObj).then(callback)
+fetch("http://localhost:3000/sum?age=10",senObj).then(callback)//this will work without 
+                                                              // senObj
