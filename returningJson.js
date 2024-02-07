@@ -7,8 +7,8 @@ app.get('/', (req,res)=>{
     res.send("hello")
 })
 
-app.post('/sum', (req,res)=>{
-    var count=req.body.age;
+app.get('/sum', (req,res)=>{
+    var count=req.query.age;
     let tot=0;
     let mul=1;
     for (let i = 0;i <count; i++) {
