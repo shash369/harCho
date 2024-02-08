@@ -8,7 +8,7 @@ app.get('/', (req,res)=>{
 })
 
 app.get('/sum', (req,res)=>{
-    var count=req.query.age;
+    var count=req.query.age;//req.body.age//req.header.age
     let tot=0;
     let mul=1;
     for (let i = 0;i <count; i++) {
