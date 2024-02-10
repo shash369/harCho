@@ -18,3 +18,5 @@ let senObj={
 }
 fetch("http://localhost:3000/sum?age=125",senObj).then(callback)//this will work without 
                                                               // senObj
+                                                              //this is a async function thats why it return a promise 
+                                                              //thats why .then method is used 
