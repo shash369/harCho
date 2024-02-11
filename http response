@@ -1,5 +1,10 @@
-inforational responce 100-199
-successfull responce  200-299
-redirection responce  300-399
-client error responce 400-499
-server error responce 499-599
+// inforational responce 100-199
+// successfull responce  200-299
+// redirection responce  300-399
+// client error responce 400-499
+// server error responce 499-599
+ 
+//these are defualt responces that are used for the server 
+
+//you can change that by using
+res.status("the status no you want to use" ).send() 
