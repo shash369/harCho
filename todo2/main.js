@@ -59,7 +59,7 @@ app.post('/todos',(req,res)=>{
 })
 
 app.delete('/todos/:id',(req,res)=>{
-    const ID=findIndex(todos,parseInt(req.params.id))//return of req.params.id is a string
+    const ID=findIndex(todos,parseInt(req.params.id))// return of req.params.id is a string
     if (ID === -1) {
         res.status(404).send("entered id not found")
     }
@@ -71,4 +71,4 @@ app.delete('/todos/:id',(req,res)=>{
 
 app.listen(port,()=>{
     console.log("port is lisning at http://localhost:3003/todos")
-})
+}) 
