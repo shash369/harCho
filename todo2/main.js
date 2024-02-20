@@ -35,9 +35,11 @@ function findIndex(arr,id){
 //     }
 //     return newArray
 // }
-function removeAtIndex(arr, index) {
-    arr.splice(index, 1);
-    return arr;
+function removeAtIndex(arr, id) {   // let arr = [1, 2, 3, 4, 5];  let id = 2; 
+    arr.splice(id, 1);              // arr.splice(id, 1);
+                                    // console.log(arr); 
+                                    // Output: [1, 2, 4, 5]
+    return arr;                     
 }
 
 
