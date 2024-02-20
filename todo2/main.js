@@ -59,7 +59,17 @@ app.post('/todos',(req,res)=>{
     todos.push(newTodo);
     res.status(201).json(newTodo);
 })
-
+app.put("/todos/:id", (req,res)=>{
+         let updateTodoId=findIndex(todos,parseInt(req.params.id))
+         if (updateTodoId === -1) {
+            res.status(404).send("entered id not found")
+        }
+        else{
+          todos[updateTodoId].title=req.body.title
+          todos[updateTodoId].description=req.body.description
+        }
+        res.json(todos[updateTodoId])
+})
 app.delete('/todos/:id',(req,res)=>{
     const ID=findIndex(todos,parseInt(req.params.id))// return of req.params.id is a string
     if (ID === -1) {
