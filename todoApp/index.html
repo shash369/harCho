@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <h1>todo <title></title></h1>
+        <input type="text" placeholder="title">
+        <h1>description</h1>
+         <input type="text" placeholder="decrpition">
+          
+
+         <button onclick="onPress2()">post</button>
+         <button onclick="onPress()">show</button>
+
+          
+    <script> 
+        function parsedRes(data){
+           console.log(data)
+        }
+        function callback(resp){
+            resp.json().then(parsedRes); 
+        }
+        function onPress(){
+            fetch("http://localhost:6969/todos",{
+                method:"GET"
+            }).then(callback)
+        } 
+
+
+        function onPress2(){
+             fetch("http://localhost:6969/todos",{
+                method:"POST",
+                body:JSON.stringify({
+                    title :"gym",
+                    description:"just go to gym"  
+                }),
+                headers :{
+                  "Content-Type":"application/json"  
+                }
+             }).then(callback)
+
+        }
+        /*
+        const onPress = () => {
+    fetch("http://localhost:6969/todos", {
+        method: "GET"
+    })
+    .then(resp => resp.json())
+    .then(data => {
+        console.log(data);
+    });
+};
+        */
+    </script>
+</body>
+</html> 

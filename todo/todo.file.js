@@ -6,6 +6,17 @@ const app=express()
 app.use(bodyParser.json())
 const port=3000;
 
+function findIndex(arr ,id){
+  for (let i = 0; i < arr.length; i++) {
+   
+    if (arr[i].id===id){
+
+      return i
+    }
+    return -1;
+  }
+
+}
 
 app.get('/',(req,res)=>{
    fs.readFile('todos.txt','utf8',(err,data)=>{
@@ -32,6 +43,31 @@ app.post('/todos',(req,res)=>{
       res.send("OK")
     })
   })
+})
+
+app.delete('/todos/:id',(req,res)=>{
+     
+  fs.readFile('todos.txt','utf-8',(err)=>{
+    if (err) {
+      throw err
+    }
+    else{//
+      let todos=JSON.parse(data)
+      let indexToDelete=findIndex(todos,parseInt(req.params.id))
+
+      todos.splice(indexToDelete,1)
+      fs.writeFile('todos.txt',JSON.stringify(todos),(err)=>{
+      if (err) {
+        throw err
+      }
+      else{
+        res.status(200).send(todos)
+      }
+    })
+
+    }//
+  })//
+  
 })
 
 app.listen(port,()=>{
