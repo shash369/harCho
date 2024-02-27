@@ -44,6 +44,38 @@ app.post('/todos', (req, res) => {
     });
 });
 
+app.put('/todos/:id',(req,res)=>{
+    fs.readFile('todos.json','utf8',(err,data)=>{
+        if (err) {
+            throw err
+        }
+        else{
+            let todos=JSON.parse(data)
+            let indexf=findIndex(todos,parseInt(req.params.id))
+            if (indexf===-1) {
+                res.status(404).send("id i not found")
+            }
+            else{
+                let newTodo={
+                    id:todos[indexf].id,
+                    title:req.body.title,
+                    description:req.body.description
+                }
+                todos[indexf]=newTodo;
+        
+        fs.writeFile('todos.json',JSON.stringify(todos),(err)=>{
+            if (err){
+                throw err;
+            }
+            else{
+                res.status(200).json(newTodo);
+            }
+        })
+            }
+        }
+    })
+})
+
 app.delete("/todos/:id",(req,res)=>{
      
      fs.readFile('todos.json','utf8',(err,data)=>{
