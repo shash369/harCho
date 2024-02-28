@@ -8,3 +8,5 @@
 
 //you can change that by using
 res.status("the status no you want to use" ).send() 
+
+//defult code will be used if not specified
